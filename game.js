@@ -3,8 +3,8 @@ const ctx = canvas.getContext("2d");
 
 // Player object
 const player = {
-    x: 125,
-    y: 62.5,
+    x: 10,
+    y: 40,
     width: 10,
     height: 10,
     speed: 2
@@ -23,7 +23,7 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft" || event.key === "a") keys.left = true;
     if (event.key === "ArrowRight" || event.key === "d") keys.right = true;
     if (event.key === "ArrowUp" || event.key === "w") keys.up = true;
-    if (event.key === "ArrowDown" || event.key === "s") keys.down = false;
+    if (event.key === "ArrowDown" || event.key === "s") keys.down = true;
 });
 
 // Event listeners for keyup
@@ -35,7 +35,7 @@ document.addEventListener("keyup", (event) => {
 });
 
 function gameLoop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw the border inside canvas
     ctx.strokeStyle = "black"; 
