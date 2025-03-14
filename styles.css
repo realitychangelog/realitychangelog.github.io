@@ -1,6 +1,6 @@
 body {
     font-family: "Courier New", monospace;
-    background-color: #f0f0f0;
+    background-color: #FFA500;
 }
 
 h1 {
@@ -14,7 +14,6 @@ p {
     text-align: left;
 }
 
-/* Fixing the canvas border */
 #game1 {
     border: 2px solid black !important;
     display: block;
