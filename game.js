@@ -14,9 +14,11 @@ const player = {
 const obst = {
     x: 10,
     y: 62.5,
-    radius: 30,
-    speed: 5
+    radius: 10,
+    dx: 2,  // Horizontal speed
+    dy: 2   // Vertical speed
 };
+
 // Key press tracking
 const keys = {
     left: false,
@@ -30,7 +32,7 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft" || event.key === "a") keys.left = true;
     if (event.key === "ArrowRight" || event.key === "d") keys.right = true;
     if (event.key === "ArrowUp" || event.key === "w") keys.up = true;
-    if (event.key === "ArrowDown" || event.key === "s") keys.down = true;
+    if (event.key === "ArrowDown" || event.key === "s") keys.down = false;
 });
 
 // Event listeners for keyup
@@ -41,10 +43,8 @@ document.addEventListener("keyup", (event) => {
     if (event.key === "ArrowDown" || event.key === "s") keys.down = false;
 });
 
-function
-
 function gameLoop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
 
     // Draw the border inside canvas
     ctx.strokeStyle = "black"; 
@@ -62,22 +62,16 @@ function gameLoop() {
     ctx.fillRect(player.x, player.y, player.width, player.height);
 
     // Move the obstacle
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBall();
-  
-    if (x + dx > canvas.width - radius || x + dx < radius) {
-    dx = -dx;
-    }
-    if (y + dy > canvas.height - radius || y + dy < radius) {
-    dy = -dy;
-    }
-  
-    x += dx;
-    y += dy;
-    
+    obst.x += obst.dx;
+    obst.y += obst.dy;
+
+    // Bounce off walls
+    if (obst.x + obst.radius > canvas.width || obst.x - obst.radius < 0) obst.dx *= -1;
+    if (obst.y + obst.radius > canvas.height || obst.y - obst.radius < 0) obst.dy *= -1;
+
     // Draw the obstacle
     ctx.beginPath();
-    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.arc(obst.x, obst.y, obst.radius, 0, Math.PI * 2);
     ctx.fillStyle = '#0095DD';
     ctx.fill();
     ctx.closePath();
