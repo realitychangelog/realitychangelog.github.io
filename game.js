@@ -1,8 +1,6 @@
-// Get the canvas and its context
-const canvas = document.getElementById("gameCanvas");
+const canvas = document.getElementById("game1");
 const ctx = canvas.getContext("2d");
 
-// Player object
 const player = {
     x: 10,
     y: 40,
@@ -11,7 +9,6 @@ const player = {
     speed: 2
 };
 
-// Key press tracking
 const keys = {
     left: false,
     right: false,
@@ -19,7 +16,6 @@ const keys = {
     down: false
 };
 
-// Event listeners for key presses
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") keys.left = true;
     if (event.key === "ArrowRight") keys.right = true;
@@ -34,7 +30,6 @@ document.addEventListener("keyup", (event) => {
     if (event.key === "ArrowDown") keys.down = false;
 });
 
-// Game loop
 function gameLoop() {
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -53,5 +48,4 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-// Start the game loop
 gameLoop();
