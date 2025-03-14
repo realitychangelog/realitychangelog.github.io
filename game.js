@@ -17,17 +17,17 @@ const keys = {
 };
 
 document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowLeft") keys.left = true;
-    if (event.key === "ArrowRight") keys.right = true;
-    if (event.key === "ArrowUp") keys.up = true;
-    if (event.key === "ArrowDown") keys.down = true;
+    if (event.key === "A") keys.left = true;
+    if (event.key === "D") keys.right = true;
+    if (event.key === "W") keys.up = true;
+    if (event.key === "S") keys.down = true;
 });
 
 document.addEventListener("keyup", (event) => {
-    if (event.key === "ArrowLeft") keys.left = false;
-    if (event.key === "ArrowRight") keys.right = false;
-    if (event.key === "ArrowUp") keys.up = false;
-    if (event.key === "ArrowDown") keys.down = false;
+    if (event.key === "A") keys.left = false;
+    if (event.key === "D") keys.right = false;
+    if (event.key === "W") keys.up = false;
+    if (event.key === "S") keys.down = false;
 });
 
 function gameLoop() {
