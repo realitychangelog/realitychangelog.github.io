@@ -3,13 +3,20 @@ const ctx = canvas.getContext("2d");
 
 // Player object
 const player = {
-    x: 10,
-    y: 40,
+    x: 125,
+    y: 62.5,
     width: 10,
     height: 10,
     speed: 2
 };
 
+// Obstacle object
+const obst = {
+    x: 10,
+    y: 62.5,
+    radius: 30,
+    speed: 5
+};
 // Key press tracking
 const keys = {
     left: false,
@@ -34,6 +41,8 @@ document.addEventListener("keyup", (event) => {
     if (event.key === "ArrowDown" || event.key === "s") keys.down = false;
 });
 
+function
+
 function gameLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -51,6 +60,27 @@ function gameLoop() {
     // Draw the player
     ctx.fillStyle = "blue";
     ctx.fillRect(player.x, player.y, player.width, player.height);
+
+    // Move the obstacle
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+  
+    if (x + dx > canvas.width - radius || x + dx < radius) {
+    dx = -dx;
+    }
+    if (y + dy > canvas.height - radius || y + dy < radius) {
+    dy = -dy;
+    }
+  
+    x += dx;
+    y += dy;
+    
+    // Draw the obstacle
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fillStyle = '#0095DD';
+    ctx.fill();
+    ctx.closePath();
 
     requestAnimationFrame(gameLoop);
 }
