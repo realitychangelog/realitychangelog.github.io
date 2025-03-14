@@ -16,7 +16,7 @@ p {
 
 /* Fixing the canvas border */
 #game1 {
-    border: 2px solid black;
+    border: 2px solid black !important;
     display: block;
     margin: 20px auto; /* Centers the canvas */
     background-color: white; /* Ensures visibility */
