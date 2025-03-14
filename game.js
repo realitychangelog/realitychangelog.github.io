@@ -10,15 +10,6 @@ const player = {
     speed: 2
 };
 
-// Obstacle object
-const obst = {
-    x: 10,
-    y: 62.5,
-    radius: 10,
-    dx: 2,  // Horizontal speed
-    dy: 2   // Vertical speed
-};
-
 // Key press tracking
 const keys = {
     left: false,
@@ -60,21 +51,6 @@ function gameLoop() {
     // Draw the player
     ctx.fillStyle = "blue";
     ctx.fillRect(player.x, player.y, player.width, player.height);
-
-    // Move the obstacle
-    obst.x += obst.dx;
-    obst.y += obst.dy;
-
-    // Bounce off walls
-    if (obst.x + obst.radius > canvas.width || obst.x - obst.radius < 0) obst.dx *= -1;
-    if (obst.y + obst.radius > canvas.height || obst.y - obst.radius < 0) obst.dy *= -1;
-
-    // Draw the obstacle
-    ctx.beginPath();
-    ctx.arc(obst.x, obst.y, obst.radius, 0, Math.PI * 2);
-    ctx.fillStyle = '#0095DD';
-    ctx.fill();
-    ctx.closePath();
 
     requestAnimationFrame(gameLoop);
 }
