@@ -1,23 +1,23 @@
-<head>
-    <style>
-        body {
-            font-family: "Courier New", monospace;
-            background-color: #f0f0f0;
-        }
+body {
+    font-family: "Courier New", monospace;
+    background-color: #f0f0f0;
+}
 
-        h1 {
-            color: #333;
-            text-align: center;
-        }
+h1 {
+    color: #333;
+    text-align: center;
+}
 
-        p {
-            font-size: 18px;
-            color: #666;
-            text-align: left;
-        }
+p {
+    font-size: 18px;
+    color: #666;
+    text-align: left;
+}
 
-        #game1 {
-            border: 2px solid black;
-        }
-    </style>
-</head>
+/* Fixing the canvas border */
+#game1 {
+    border: 2px solid black;
+    display: block;
+    margin: 20px auto; /* Centers the canvas */
+    background-color: white; /* Ensures visibility */
+}
