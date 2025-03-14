@@ -41,7 +41,7 @@ function gameLoop() {
     if (keys.down && player.y < canvas.height - player.height) player.y += player.speed;
 
     // Draw the player
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "red";
     ctx.fillRect(player.x, player.y, player.width, player.height);
 
     // Request the next frame
