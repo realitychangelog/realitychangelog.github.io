@@ -3,27 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edward Vierstra</title>
+  <title>Minecraft Chunk Painter</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-    <img src="https://via.placeholder.com/80" alt="Placeholder Image" />
-    <h1>Edward Vierstra</h1>
+    <h1>Minecraft Chunk Painter</h1>
+    <input id="seed" type="text" placeholder="Seed" value="12345">
+    <input id="color" type="color" value="#ff0077">
+    <button id="paintBtn">Paint</button>
+    <button id="eraseBtn">Erase</button>
+    <button id="saveBtn">Save PNG</button>
   </header>
 
-  <hr />
+  <canvas id="map"></canvas>
 
-  <main>
-    <div class="dummy-text">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, turpis in tempor facilisis, mauris dolor varius orci, vel scelerisque elit nunc vel arcu. Duis commodo vel augue non commodo.</p>
-      <p>Quisque fringilla ex in tortor efficitur, vel lacinia arcu dapibus. Morbi vel libero at lorem tincidunt scelerisque. Vivamus nec justo sem.</p>
-      <p>Aliquam erat volutpat. Nulla facilisi. Pellentesque sit amet nulla id sapien blandit rutrum nec sed libero.</p>
-      <p>Phasellus mattis, sem at convallis malesuada, arcu magna varius nisi, ac facilisis purus nisi eget lectus.</p>
-      <p>[...more dummy content to enable scrolling...]</p>
-    </div>
-  </main>
-
+  <script src="script.js"></script>
 </body>
 </html>
