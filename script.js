@@ -37,13 +37,20 @@ function hashString(str) {
   return h >>> 0;
 }
 
-const BIOMES = [
-  "#91bd59","#228b22","#e3d27b","#2e8b57",
-  "#c9b458","#1f6f36","#e9f2f8","#8a9aa2","#4b6b4b","#b56a3b"
-];
-function pickBiome(s, cx, cy) {
+// Generate land/water based on seed
+function isLand(s, cx, cy) {
+  const rng = mulberry32(hashString(`${s}:${Math.floor(cx/5)},${Math.floor(cy/5)}`));
+  return rng() > 0.4; // 60% land, 40% water
+}
+
+function pickBiomeColor(s, cx, cy) {
+  if (!isLand(s, cx, cy)) {
+    return "#3a80e0"; // water
+  }
+  // land biomes
   const rng = mulberry32(hashString(`${s}:${cx},${cy}`));
-  return BIOMES[Math.floor(rng() * BIOMES.length)];
+  const landColors = ["#91bd59", "#e3d27b", "#4b6b4b", "#b56a3b"];
+  return landColors[Math.floor(rng() * landColors.length)];
 }
 
 // Drawing
@@ -54,12 +61,13 @@ function draw() {
   for (let y = 0; y < rows; y++) {
     for (let x = 0; x < cols; x++) {
       const key = `${x},${y}`;
-      ctx.fillStyle = overrides[key] || pickBiome(seed, x, y);
+      ctx.fillStyle = overrides[key] || pickBiomeColor(seed, x, y);
       ctx.fillRect(x * scale, y * scale, scale, scale);
     }
   }
 }
 
+// Painting events
 canvas.addEventListener('click', e => {
   const cx = Math.floor(e.offsetX / scale);
   const cy = Math.floor(e.offsetY / scale);
@@ -71,7 +79,17 @@ canvas.addEventListener('click', e => {
 
 paintBtn.onclick = () => tool = 'paint';
 eraseBtn.onclick = () => tool = 'erase';
-seedInput.onchange = () => { seed = seedInput.value; draw(); };
+
+// Update seed on Enter
+seedInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    seed = seedInput.value.trim();
+    overrides = {}; // clear edits
+    draw();
+  }
+});
+
+// Save PNG
 saveBtn.onclick = () => {
   const url = canvas.toDataURL();
   const a = document.createElement('a');
