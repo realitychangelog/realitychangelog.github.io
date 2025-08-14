@@ -1,46 +1,20 @@
 body {
   margin: 0;
-  font-family: 'Playfair Display', serif;
-  line-height: 1.6;
-  background: #f4f4f4;
-  color: #333;
+  background: #111;
+  color: white;
+  font-family: sans-serif;
 }
-
 header {
+  padding: 10px;
+  background: #222;
   display: flex;
+  gap: 10px;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: white;
 }
-
-header img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-right: 20px;
+canvas {
+  display: block;
+  width: 100vw;
+  height: calc(100vh - 50px);
+  background: #333;
+  cursor: crosshair;
 }
-
-header h1 {
-  font-size: 2.5em;
-  margin: 0;
-}
-
-hr {
-  border: none;
-  height: 2px;
-  background-color: #ccc;
-  margin: 0 40px 20px;
-}
-
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.dummy-text {
-  margin-bottom: 1000px; /* simulate scrolling */
-}
-
