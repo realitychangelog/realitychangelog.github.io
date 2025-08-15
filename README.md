@@ -1,1 +1,2 @@
-An alternative to Chunkbase that I made for a minecraft server.
+Adventure game!
+I should say that ChatGPT made this completely. This was just for my entertainment.
