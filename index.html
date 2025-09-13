@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Seeded Adventure</title>
-  <link rel="stylesheet" href="./style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">Seeded Adventure</div>
-    <div class="controls">
-      <label>Seed
-        <input id="seedInput" type="text" placeholder="enter seed & press Enter" />
-      </label>
-      <button id="newWorldBtn" title="Generate new world from seed">New World</button>
-      <button id="saveBtn" title="Save your position">Save</button>
-      <button id="resetBtn" title="Reset progress for this seed">Reset</button>
-      <button id="helpBtn" title="Show controls">?</button>
-    </div>
+  <header>
+    <h1>Changelog</h1>
+    <p>Track all notable changes to this project.</p>
   </header>
 
-  <canvas id="game"></canvas>
+  <main>
+    <section class="release">
+      <h2>v1.2.0 <span class="date">2025-09-13</span></h2>
+      <ul>
+        <li>✨ Added new feature X</li>
+        <li>🐛 Fixed bug in Y</li>
+        <li>⚡ Improved performance of Z</li>
+      </ul>
+    </section>
 
-  <div id="hud" class="hud"></div>
-  <div id="toast" class="toast" hidden></div>
-  <dialog id="helpDialog">
-    <h3>Controls</h3>
-    <ul>
-      <li><b>WASD / Arrow Keys</b> — move</li>
-      <li><b>Enter</b> in Seed box — new world</li>
-      <li><b>E</b> — interact (pick up shards)</li>
-      <li><b>G</b> — toggle grid</li>
-      <li><b>Esc</b> — close this</li>
-    </ul>
-    <p>Same seed → same world layout. Collect shards scattered across the land.</p>
-    <form method="dialog">
-      <button>Close</button>
-    </form>
-  </dialog>
+    <section class="release">
+      <h2>v1.1.0 <span class="date">2025-08-20</span></h2>
+      <ul>
+        <li>➕ Introduced feature A</li>
+        <li>🗑️ Removed deprecated option B</li>
+      </ul>
+    </section>
 
-  <script type="module" src="./js/game.js"></script>
+    <section class="release">
+      <h2>v1.0.0 <span class="date">2025-07-10</span></h2>
+      <ul>
+        <li>🎉 Initial release</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Your Project</p>
+  </footer>
 </body>
 </html>
